@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            $("#button1").click(function () {
+                $.ajax({
+                    type: 'Get',
+                    url: 'https://622885819fd6174ca8269cdb.mockapi.io/staff',
+                    data: 'json',
+                    success: function (data) {
+                        console.log(data)
+                        var i = 0
+                    do {
+                        $('#id2').append("  " + i + "<br/>")
+                        $('#id3').append("  " + data[i].name +"<br/>")
+                        $('#id4').append("  " + data[i].company +"<br/>")
+                        $('#id5').append("  " + data[i].phone +"<br/>");
+                        i++
+                    } while (i < data.length);
+                    }
+                })
+            })
+            // $("#button1").click(function () {
+            //     $.get("https://622885819fd6174ca8269cdb.mockapi.io/staff", function (data, status) {
+            //         console.log(data)
+            //         $('#id1').append(" có " + data.length + " bản ghi.<br/>")
+            //         var i = 0
+            //         do {
+            //             $('#id2').append("  " + i + "<br/>")
+            //             $('#id3').append("  " + data[i].name +"<br/>")
+            //             $('#id4').append("  " + data[i].company +"<br/>")
+            //             $('#id5').append("  " + data[i].phone +"<br/>");
+            //             i++
+            //         } while (i < data.length);
+            //     });
+            // });
+            $("#button2").click(function () {
+                var a = $("input[name='name']").val()
+                var b = $("input[name='cp']").val()
+                var c = $("input[name='sdt']").val()
+                $.post("https://622885819fd6174ca8269cdb.mockapi.io/staff",
+                    {
+                        name: a,
+                        company: b,
+                        phone: c
+                    },
+                    function (data, status) {
+                        alert("Data: " + data + "\nStatus: " + status);
+                    });
+            });
+        });
+    </script>
+</head>
+
+<body>
+
+    <button id="button1">GET</button>
+    <p id="id1"></p>
+    <table class="table">
+        <thead>
+          <tr>         
+            <th scope="col">#</th>
+            <th scope="col">Name</th>
+            <th scope="col">quốc gia</th>
+            <th scope="col">số điện thoại</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <th id="id2" scope="row"></th>
+            <td id="id3"></td>
+            <td id ="id4"></td>
+            <td id="id5"></td>
+          </tr>
+        </tbody>
+      </table>
+
+    <input type="text" class="form-control" name="name">
+    <input type="text" class="form-control" name="cp">
+    <input type="text" class="form-control" name="sdt">
+    <button id="button2">Post</button>
+
+
+</body>
+
+</html>

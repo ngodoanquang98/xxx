@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Call API</title>
+    <link rel="stylesheet" href="main.css" />
+    <link rel="stylesheet" href="bootstrap.min.css" />
+    <link rel="stylesheet" href="jquery-ui-git.css" />
+    <script language="javascript" src="jquery-3.6.0.js"></script>
+</head>
+
+<body>
+    <div class="container">
+        <div id="em">
+            <label>Employees List</label>
+        </div>
+        <div>
+            <button id="btnNew" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#myModal">
+                + New
+            </button>
+        </div><br />
+        <div>
+            <table id="table">
+                <thead id="th">
+                    <tr>
+                        <th scope="col">ID</th>
+                        <th scope="col">No</th>
+                        <th scope="col">Name</th>
+                        <th scope="col">age</th>
+                        <th scope="col">sex</th>
+                        <th scope="col" style="width: 350px;">address</th>
+                        <th scope="col">company_in</th>
+                        <th scope="col">company_out</th>
+                    </tr>
+                </thead>
+                <tbody id="show"></tbody>
+            </table>
+        </div>
+        <div class="modal" id="myModal">
+            <div class="modal-dialog modal-lg mod">
+                <div class="modal-content">
+                    <div id="modl">
+                        <div class="col-sm-3">No: <input id="no" /></div>
+                        <div class="col-sm-3">Name: <input id="name" /></div>
+                        <div class="col-sm-3">age: <input id="age" /></div>
+                        <div class="col-sm-3">sex:
+                            <div class="form-check">
+                                <input type="radio" name="flexRadioDefault" value="nam">
+                                <label class="form-check-label" for="flexRadioDefault1">
+                                    Male
+                                </label>
+                            </div>
+                            <div class="form-check">
+                                <input type="radio" name="flexRadioDefault" value="nữ" checked>
+                                <label class="form-check-label" for="flexRadioDefault2">
+                                    Female
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-10">Adress: <br /><textarea id="add"></textarea></div>
+                    <div id="da">
+                        <div class="col-sm-3">company In: <input type="text" value="2018-07-22" placeholder="yyyy/mm/dd"
+                                id="in" /></div>
+                        <div class="col-sm-4">company out: <input type="text" placeholder="yyyy/mm/dd" id="out" /></div>
+                    </div><br />
+                    <div id="sa">
+                        <button id="save" type="button" class="btn btn-success" data-bs-dismiss="modal">Save</button>
+                    </div><br />
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+<script language="javascript" src="ajax.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+<script language="javascript" src="jquery-ui.js"></script>
+
+</html>
